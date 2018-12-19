@@ -1,0 +1,22 @@
+{% extends 'first/base.html' %}
+{% block body_block %}
+<div class="jumbotron">
+  <h1>welcome to the school details page</h1>
+  <h2>school details : </h2>
+  <p>Name : {{school_details.name}}</p>
+  <p>principal : {{school_details.principal}}</p>
+  <p>location : {{school_details.location}}</p>
+  <h3>students:</h3>
+
+  {% for student in school_detail.students.all %}
+   <p>{{student.name}} who is {{student.age}} years old. </p>
+   {% endfor %}
+
+</div>
+
+<div class="container">
+  <p><a class="btn btn-warning" href="{% url 'first:update' pk=school_details.pk %}">update</a></p>
+  <p><a class="btn btn-danger" href="{% url 'first:delete' pk=school_details.pk %}">delete</a></p>
+
+</div>
+{% endblock %}
